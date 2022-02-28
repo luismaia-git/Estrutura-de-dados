@@ -1,0 +1,238 @@
+questão 1 
+[1,23,56,12,44,3,8]
+
+[1,23,56] >>> [56,23,1] max_heap
+[12,44,3,8] >>> [3,8,12,44] min_heap
+
+[1,23,56,12,44,3,8]
+
+[56,44,23,12,8,3,1]
+
+[1,2,3,4,5,6]
+
+[6,5,4][3,2,1]
+
+[32,4,7,25,13,76,45,23,200]
+
+[200,45,76,25,32,23,13,7,4]
+
+
+
+questao 2
+
+Suponha por contradição que há pelo menos uma subarvore onde a raiz é menor que algum elemento pertencente a subarvore, sendo assim, temos uma contradição à hipotese pois a arvore como um todo não poderia ser uma Heap.
+
+questão 3
+
+Ele so pode residir nas folhas, pois do contrario ele teria um filho, e isso é um absurdo, pois significaria que ele não é o menor.
+
+Questão 4
+
+Pilha:
+
+;o vetor é um vetor de par, e cada posição delem comporta dois elementos, o "primeiro" e o "segundo"
+;o segundo elemento de cada posição é referente ao indice de inserção do valor, e é por esse valor que a arvore é ordenada
+
+
+contador = 0
+
+inserir_heap_pilha(A[1..n], x)
+
+	contador <= contador + 1
+	x.segundo <= contador
+
+	A[n] <= x
+	n++
+
+	Subir(A[1..n])
+
+
+
+remover_heap_pilha(A[1..n])
+
+	se n = 0 
+		retorna -1
+
+	A[1] <-> A[n]
+	n--
+	Descer(A[1..n])
+
+		
+
+
+Subir(i, n)
+	se i = 0
+		retorna ;
+	se v[i/2] < v[i].segundo
+		v[i/2] <-> v[i]
+		Subir(i/2, n)
+
+
+;
+Descer (i, n)
+	j <- 2i
+	
+	se j <= n
+		se j < n 
+			se v[j+1] > v[j].segundo	
+				j <- j+1
+
+		se v[i] < v[j].segundo
+			v[i] <-> v[j]
+			Descer(j,n)
+
+Fila
+
+Neste caso, a diferença é que será com um heap de minimo, e teremos que mudar as linhas de comparação nas funções Descer e Subir, e alem disso, na função inserir, eu vou sempre jogar o elemento no final do vetor, sem que necessarimente eu precise chamar a função Subir.
+
+
+
+
+Questão 5
+
+Mostre o que acontece (passo-a-passo e tabela final) quando inserimos as chaves 5; 28; 19; 15;
+20; 33; 12; 17; 10 em uma tabela de dispersão com tratamento de colisões por encadeamento externo.
+Considere que a tabela tem tamanho 9 e utiliza a função de dispersão h(x) = x mod 9.
+
+[x]
+[28,19,10]
+[20]
+[12]
+[x]
+[5]
+[15,33]
+[x]
+[17]
+
+
+[x,28->19->10,20,12,x,5,15->33,x,17]
+
+
+Questao 6
+
+[5,10,15,x,x]
+
+
+5,10,15
+
+
+	(h(x; k) = (h0(x) + k) mod m)
+
+
+
+algoritmo (T[1..m], x)
+
+	k = 0
+	
+	pos =  ((hlin(x) + k*hlin(x)) mod m)
+
+	se T[pos] = x
+		retorna pos
+	senao se T[pos] = vazio
+			return -1
+		  senao 
+		  	i <= pos + 1
+		  	enquanto T[i] != x e pos != i
+		  		se T[i] == vazio
+		  			retorna -1
+		  		senao se T[i] = x
+		  			  retorna pos
+		  		i = (i+1) mod m
+		  		k++
+
+
+questao 7
+
+Considere a inserção das chaves 10; 22; 31; 4; 15; 28; 17; 88; 59 em uma tabela de disperção
+de tamanho m = 11 usando endereçamento aberto com a função auxiliar h0(x) = x. Mostre a tabela
+resultante da inserção dessas chaves usando a tentativa linear (h(x; k) = (h0(x) + k) mod m) e tentativa
+quadrática (h(x; k) = (h0(x) + c1k + c2k2) mod m).
+
+
+
+Tentativa Linear 
+(h(x; k) = (hlin(x) + k) mod m)
+
+k = 0
+[x,x,x,x,x,x,x,x,x,x,10]
+
+k = 1
+[x,22,x,x,x,x,x,x,x,x,10]
+
+k = 2
+[31,22,x,x,x,x,x,x,x,x,10]
+
+k = 3
+[31,22,x,x,x,x,x,4,x,x,10]
+
+k = 4
+[31,22,x,x,x,x,x,4,15,x,10]
+
+k = 5
+[31,22,28,x,x,x,x,4,15,x,10]
+
+k = 6
+[31,22,28,17,x,x,x,4,15,x,10]
+
+k = 7
+[31,22,28,17,x,x,x,4,15,88,10]
+
+k = 8
+[31,22,28,17,59,x,x,4,15,88,10]
+
+
+
+
+Tentativa Quadratica
+(h0(x) + c1k + c2k2) mod m)
+
+c1 = 1
+c2 = 2
+
+(hlin(x) + 1k + 2k^2) mod m)
+
+
+10; 22; 31; 4; 15; 28; 17; 88; 59
+
+k = 0 
+[x,x,x,x,x,x,x,x,x,x,10]
+
+k = 1
+22 + 1 + 2 = 24
+[x,x,22,x,x,x,x,x,x,x,10]
+
+k = 2
+31 + 2 + 8 = 41
+[x,x,22,x,x,x,x,x,31,x,10]
+
+k = 3
+4 + 3 + 18 = 25
+[x,x,22,4,x,x,x,x,31,x,10]
+
+k = 4
+15 + 4 + 32 = 51
+[x,x,22,4,x,x,x,15,31,x,10]
+
+k = 5
+28 + 5 + 50 = 83
+[x,x,22,4,x,x,28,15,31,x,10]
+
+k = 6
+17 + 6 + 72 = 95
+[x,x,22,4,x,x,28,15,31,17,10]
+
+k = 7
+88 + 7 + 98 = 193
+[88,x,22,4,x,x,28,15,31,17,10]
+
+k = 8
+59 + 8 + 128 = 195
+[88,59,22,4,x,x,28,15,31,17,10]
+
+
+
+
+
+
+
+

@@ -1,0 +1,177 @@
+
+Questoes resolvidas com Pseudo-Codigo
+
+
+ questao 4
+P1 = N
+
+P2 = M
+
+
+[3,6,8,10]
+
+[1,2,7,8,11,13]
+
+if P1[0] 
+
+//
+[]
+[]
+
+
+if P1[n] <= P2[n]
+	P3[n] = P2[n]
+else	
+	P3[n]= P1[n]
+
+n++
+
+P3[2,3,6,7,8,8,10,11,13]
+
+
+
+Primeiramente realizamos N+M operações para transferir os elementos da P1 e P2 para P3, por fim, nós levamos N+M operações para tranferir os elementos da P3 para P1.
+Algoritmo 1 ele leva 2(N+M) operações.
+
+//algoritmo 2
+
+P1 = N
+
+P2 = M
+
+
+P1= [3,6,8,10]
+
+P2= [1,2,7,8,11,13]
+
+//depois ( N operações )
+P1= []
+
+P2= [1,2,7,8,11,13]
+
+P3 = [3,6,8,10]
+
+// depois (M operações )
+
+P1= []
+
+P2= []
+
+P3 = [3,6,8,10]
+
+P4 = [1,2,7,8,11,13]
+
+
+//depois (N+M operações)
+
+if P3[n] >= P4[n]:
+	P1[n] = P3[n] 
+else:
+	P1[n] = P4[n]
+return P1
+
+
+P1= [1,2,3,6,7,8,8,10,11,13]
+
+P2= []
+
+P3 = []
+
+P4 = []
+
+Primeiramente realizamos N operações para transferir os elementos da P1 para P3, segundamente, realizamos M operaçoes para tranferir os elementos de P2 para P4, por fim, nós levamos N+M operações para tranferir os elementos da P3 e P4 para P1.
+Algoritmo 2 leva 2(N+M) operações.
+
+N operações , M operações , depois N+M
+
+Ambos sao igualmente eficientes
+
+
+B) A complexidade é a mesma para ambos os casos, de qualquer forma ele tem que percorrer ambos as pilhas.
+
+C) 
+
+De qualquer forma no pior e no melhor caso, teriamos que percorrer ambos os vetores. Por tanto o numero de comparações seria o mesmo.
+
+
+questao 6
+i é o indice da priemira posição
+j é indice da ultima posição
+n é numero de elementos do vetor
+
+
+deque_inserirInicio(vetor[1...n], x)
+
+	se n == 0 
+		vetor[n] <= x 
+		j++
+		n++
+		return vetor
+	se i == 0
+		return -1
+	se i > 0
+		i--
+		vetor[i] <= x
+		n++
+		return vetor
+
+deque_inserirFinal(vetor[1...n], x)
+
+	se n == 0 
+		vetor[n] <= x 
+		j++
+		n++
+		return vetor
+
+	vetor[n] <= x
+	n++
+	return vetor
+
+deque_removeInicio(vetor)
+	
+	if n == 0
+		return -1
+
+	i++
+	n--
+	return vetor[i-1]
+
+
+deque_removeFinal(vetor)
+	
+	if n == 0 
+		return -1
+
+	j--
+	n--
+	return vetor[j+1]
+
+
+questao 7
+
+Estrutura escolhida : Deque
+
+n é numero de elementos do vetor
+
+palavra_pali(vetor[1...n])
+
+	enquanto n > 1
+		se deque_removerInicio(vetor) != deque_removerFinal(vetor)
+			return -1
+
+	return 1
+
+
+n= 5
+n=3
+n=1
+
+raiar
+
+aia
+
+i
+
+r a i a r
+
+

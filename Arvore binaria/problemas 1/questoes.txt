@@ -1,0 +1,7 @@
+questao 1) Contar os elementos de uma arvore binaria de busca
+
+questao 2) Imprimir todos os elementos do nivel k de uma arvore binaria de busca
+
+questao 5) Imprimir o k-esimo maior elemento de uma arvore binaria de busca
+
+questao 6) Imprimir todos os elementos da arvore que estao entre os valores k e l

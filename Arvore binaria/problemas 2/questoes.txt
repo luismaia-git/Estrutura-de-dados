@@ -1,0 +1,8 @@
+questao 1) Imprimir o k-esimo menor elemento da arvore
+
+questao 2) Imprimir todos os elementos do nivel k
+
+questao 4) Remover todas os elementos que se encontram no nivel k da arvore
+
+questao 5) Procurar pelo elemento k na arvore e se ele nao estiver la,
+encontrar o elemento da arvore que esta mais proximo de k

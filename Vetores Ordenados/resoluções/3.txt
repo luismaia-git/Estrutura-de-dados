@@ -1,0 +1,27 @@
+
+Problema resolvido em Pseudo-codigo
+
+pascal (inteiro n):
+    crie matriz M[n][n] // vetor de vetores
+
+    M[0][0] = 1
+
+    for i = 1 ate n-1:
+        crie vetor V1[i+1]
+        crie vetor V2[i+1]
+
+        for k = 0 ate i-1:
+            V1[k]   = M[i-1][k];
+            V2[k+1] = M[i-1][k];
+
+        V1[i] = 0
+        V2[0] = 0
+
+        for j = 0 ate i+1:
+            M[i][j] = V1[j] + V2[j];
+        
+
+    for i = 0 ate i < n:
+        for j = 0 ate j < i+1:
+            print(M[i][j] + " ")
+        print("/n")
